@@ -1,0 +1,27 @@
+create database company;
+use company;
+show tables;
+
+
+CREATE TABLE employee (
+    person_name VARCHAR(15) PRIMARY KEY,
+    street VARCHAR(15),
+    city VARCHAR(15)
+);
+CREATE TABLE works (
+    person_name VARCHAR(15) PRIMARY KEY,
+    company_name VARCHAR(15),
+    salary DECIMAL(9 , 2 )
+);
+
+CREATE TABLE company (
+    company_name VARCHAR(15) PRIMARY KEY,
+    city VARCHAR(15)
+);
+
+CREATE TABLE manages (
+    person_name VARCHAR(15) PRIMARY KEY,
+    manager_name VARCHAR(15)
+);
+
+
