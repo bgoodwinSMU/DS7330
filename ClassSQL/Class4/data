@@ -1,0 +1,64 @@
+use company;
+
+
+insert into employee values( 'Sowerby', 'English', 'Dallas');
+insert into employee values( 'Coppens', 'Math', 'Atlanta');
+insert into employee values('Cirsto', 'Math', 'Plano');
+insert into employee values('Velikovs', 'Marketing', 'Santa Clara');
+insert into employee values( 'Marek', 'Psychology', 'Santa Clara');
+insert into employee values( 'Tran-', 'Marketing', 'Santa Clara');
+insert into employee values( 'Guerra', 'Elec. Eng.', 'Santa Clara');
+insert into employee values( 'Hawthorne', 'Marketing', 'Santa Clara');
+insert into employee values( 'Leuen', 'Math', 'Atlanta');
+insert into employee values( 'Eguchi', 'Astronomy', 'Atlanta');
+insert into employee values( 'Moei', 'Elec. Eng.', 'Atlanta');
+insert into employee values( 'Alfaro', 'Elec. Eng.', 'Atlanta');
+insert into employee values( 'Krishnakumar', 'Physics', 'Atlanta');
+insert into employee values( 'Inoue', 'Math', 'Dallas');
+insert into employee values('Sahm', 'Finance', 'Dallas');
+insert into employee values( 'Tomason', 'Pol. Sci.', 'Dallas');
+insert into employee values('Karande', 'Astronomy', 'Dallas');
+insert into employee values( 'Wunderli', 'Languages', 'Dallas');
+insert into employee values('Greve', 'Psychology', 'Dallas');
+insert into employee values( 'Cerime', 'Accounting', 'Dallas');
+insert into employee values('Crick', 'Comp. Sci.', 'Dallas');
+insert into employee values('Hashimoto', 'Athletics', 'Dallas');
+insert into employee values('Dage', 'Physics', 'Dallas');
+insert into employee values('Pearlman', 'Biology', 'Dallas');
+
+
+
+insert into works values( 'Sowerby', 'ABC', 111000);
+insert into works values( 'Coppens', 'ABC', 5000);
+insert into works values('Cirsto', 'FBC', 7000);
+insert into works values('Velikovs', 'FBC', 120000);
+insert into works values( 'Marek', 'FBC', 11000);
+insert into works values( 'Tran-', 'FBC', 6000);
+insert into works values( 'Guerra', 'Elec. Eng.', 12345);
+insert into works values( 'Hawthorne', 'Marketing', 5000);
+insert into works values( 'Leuen', 'Math', 90000);
+insert into works values( 'Eguchi', 'Astronomy', 8000);
+insert into works values( 'Moei', 'Elec. Eng.', 85000);
+insert into works values( 'Alfaro', 'FBC.', 11009);
+insert into works values( 'Krishnakumar', 'Physics', 6500);
+insert into works values( 'Inoue', 'FBC', 70000);
+insert into works values('Sahm', 'ABC', 23000);
+insert into works values( 'Tomason', 'ABC.', 55000);
+insert into works values('Karande', 'FBC', 45000);
+insert into works values( 'Wunderli', 'FBC', 32000);
+insert into works values('Greve', 'Psychology', 110334);
+insert into works values( 'Cerime', 'Accounting', 70000);
+insert into works values('Crick', 'Comp. Sci.', 123000);
+insert into works values('Hashimoto', 'Athletics', 40000);
+insert into works values('Dage', 'Physics', 89000);
+insert into works values('Pearlman', 'FBC', 1234.56);
+
+
+insert into company values( 'ABC', 'Dallas');
+insert into company values('FBC', 'Plano');
+
+insert into manages values( 'Sowerby', 'Velikovs');
+insert into manages values( 'Coppens', 'Velikovs');
+insert into manages values('Cirsto', 'Plano');
+insert into manages values('Velikovs', 'Cirsto');
+
