@@ -1,0 +1,40 @@
+use University;
+
+select student.ID,name,dept_name
+from student
+ORDER BY name;
+
+
+select instructor.name,salary
+from instructor
+where dept_name in ('Comp. Sci.','Elec. Eng.')
+ORDER by salary desc;
+
+INSERT INTO course (course_id, title, dept_name, credits)
+VALUES ('CS-1', 'Test Course', 'Comp. Sci.', '3');
+
+select course_id, title
+from course
+where course_id like 'CS-1%';
+
+select sec_id, count(sec_id)
+from takes
+GROUP by sec_id;
+
+select course_id
+from takes;
+
+create view faculty as
+select ID, name, dept_name
+from instructor;
+
+
+create view CSinstructors as
+select ID, instructor.name, dept_name, salary
+from instructor
+where dept_name ='Comp. Sci.';
+
+
+
+
+
