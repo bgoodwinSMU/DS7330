@@ -1,0 +1,41 @@
+TeamID,Player ID,PlayerFirstName,PlayerLastName,PlayerAddress,PlayerCity,PlayerState,PlayerZip
+1,1,Barbara,Fournier,67 Willow Drive,Bothell,WA,98123
+1,2,David,Fournier,67 Willow Drive,Bothell,WA,98123
+1,3,John,Kennedy,2957 W 33rd,Ballard,WA,98099
+1,4,Sara,Sheskey,17950 N 59th,Seattle,WA,98011
+2,5,Ann,Patterson,16 Maple Lane,Auburn,WA,98002
+2,6,Neil,Patterson,16 Maple Lane,Auburn,WA,98002
+2,7,David,Viescas,16679 NE 42nd Court,Redmond,WA,98052
+2,8,Stephanie,Viescas,16679 NE 42nd Court,Redmond,WA,98052
+3,9,Alastair,Black,4726 - 11th Ave. N.E.,Seattle,WA,98105
+3,10,David,Cunningham,4110 Old Redmond Rd.,Redmond,WA,98052
+3,11,Angel,Kennedy,2957 W 33rd,Ballard,WA,98099
+3,12,Carol,Viescas,16345 NE 32nd Street,Bellevue,WA,98004
+4,13,Elizabeth,Hallmark,"Route 2, Box 203B",Woodinville,WA,98072
+4,14,Gary,Hallmark,"Route 2, Box 203B",Woodinville,WA,98072
+4,15,Kathryn,Patterson,16 Maple Lane,Auburn,WA,98002
+4,16,Richard,Sheskey,17950 N 59th,Seattle,WA,98011
+5,17,Kendra,Hernandez,47 Harvard Drive,Kirkland,WA,98033
+5,18,Michael,Hernandez,47 Harvard Drive,Kirkland,WA,98033
+5,19,John,Viescas,218 Main Street,Redmond,WA,98052
+5,20,Suzanne,Viescas,218 Main Street,Redmond,WA,98052
+6,21,Zachary,Ehrlich,507 - 20th Ave. E.,Seattle,WA,98122
+6,22,Alaina,Hallmark,"Route 2, Box 203B",Woodinville,WA,98072
+6,23,Caleb,Viescas,16679 NE 42nd Court,Redmond,WA,98052
+6,24,Sarah,Thompson,122 Spring Valley Drive,Duvall,WA,98019
+7,25,Megan,Patterson,16 Maple Lane,Auburn,WA,98002
+7,26,Mary,Thompson,122 Spring Valley Drive,Duvall,WA,98019
+7,27,William,Thompson,122 Spring Valley Drive,Duvall,WA,98019
+7,28,Michael,Viescas,218 Main Street,Redmond,WA,98052
+8,29,Bailey,Hallmark,"Route 2, Box 203B",Woodinville,WA,98072
+8,30,Rachel,Patterson,16 Maple Lane,Auburn,WA,98002
+8,31,Steve,Pundt,722 Moss Bay Blvd.,Kirkland,WA,98033
+8,32,Joe,Rosales,908 W. Capital Way,Tacoma,WA,98401
+9,33,Adam,Jay,123 Main,Woodland,WA,98072
+9,34,Steve,Smity,160 Elm Street,Auburn,WA,98002
+9,35,Josey,Lane,227  Bay Moss,Kandy,WA,98033
+9,36,Jersey,City,809 W Way,Phoenix,WA,98401
+10,37,Art,Bails,400 Preston Rd,Irving,WA,98072
+10,38,Bill,Peterson,603 Connection,Frisco,WA,98002
+10,39,Kevin,Murray,154 Oklahoma way,Kirkland,WA,98033
+10,40,Isiah,Greenland,967 Marsh Lane,Tacoma,WA,98401
