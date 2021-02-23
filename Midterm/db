@@ -1,0 +1,237 @@
+CREATE DATABASE basketballTournaments;
+
+USE basketballTournaments;
+
+CREATE TABLE bbPlayer_Scores (
+MatchID int NOT NULL DEFAULT 0,
+GameNumber smallint NOT NULL DEFAULT 0,
+PlayerID int NOT NULL DEFAULT 0,
+PlayersScore int NULL DEFAULT 0
+);
+
+CREATE TABLE bbPlayer_Scores_Secondary (
+MatchID int NOT NULL DEFAULT 0,
+GameNumber smallint NOT NULL DEFAULT 0,
+PlayerID int NOT NULL DEFAULT 0,
+PlayersScore int NULL DEFAULT 0
+);
+CREATE TABLE Bball_players(
+PlayerID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+playerLastName char (50) NULL,
+playerFirstName char (50) NULL,
+PlayerStreetAddress char (50) NULL,
+PlayerCity char (50) NULL,
+PLayerZipCode char (10) NULL,
+TeamID int NULL
+);
+
+CREATE TABLE Match_Games(
+MatchID int NOT NULL DEFAULT 0,
+GameNumber smallint NOT NULL DEFAULT 0,
+WinningTeam int NULL DEFAULT 0
+);
+
+CREATE TABLE Match_Games_Secondary(
+MatchID int NOT NULL DEFAULT 0,
+GameNumber smallint NOT NULL DEFAULT 0,
+WinningTeam int NULL DEFAULT 0
+);
+
+CREATE TABLE Teams (
+TeamID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+TeamName char(50) NOT NUll,
+HeadCoachLastName char(50) NOT NULL,
+HeadCoachFirstName char (50) NOT NULL
+);
+
+CREATE TABLE Tournaments (
+TourneyID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+TourneyDate date NULL,
+TourneyLocation char (50) NULL
+);
+
+CREATE TABLE Tournaments_Secondary (
+TourneyID int NOT NULL Default 0,
+TourneyDate date NULL,
+TourneyLocation char (50) NULL
+);
+
+CREATE TABLE Tourney_Matches (
+MatchID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+TourneyID int NULL DEFAULT 0,
+CourtID int NULL DEFAULT 0,
+HomeTeam int NULL DEFAULT 0,
+AwayTeam int NULL DEFAULT 0
+);
+
+CREATE TABLE Tourney_Matches_Secondary (
+MatchID int NOT NULL DEFAULT 0,
+TourneyID int NULL DEFAULT 0,
+CourtID int NULL DEFAULT 0,
+HomeTeam int NULL DEFAULT 0,
+AwayTeam int NULL DEFAULT 0
+);
+
+CREATE TABLE WAZips (
+	ZIP char (5) NOT NULL ,
+	City char (255) NULL ,
+	State char (255) NULL 
+);
+
+ALTER TABLE bbPlayer_Scores ADD 
+	CONSTRAINT bbPlayer_Scores_PK PRIMARY KEY   
+	(
+		MatchID,
+		GameNumber,
+		PlayerID
+	)   ;
+
+CREATE  INDEX PlayerID ON bbPlayer_Scores(PlayerID) ;
+
+CREATE  INDEX MatchGamesbballPlayerScores ON bbPlayer_Scores(MatchID, GameNumber) ;
+
+ALTER TABLE bbPlayer_Scores_Secondary ADD 
+	CONSTRAINT bbPlayer_Scores_Secondary_PK PRIMARY KEY 
+	(
+		MatchID,
+		GameNumber,
+		PlayerID
+	)  ;
+
+CREATE  INDEX PlayerID ON bbPlayer_Scores_Secondary(PlayerID);
+
+CREATE  INDEX Match_Games_SecondarybbPlayer_Scores_Secondary ON bbPlayer_Scores_Secondary(MatchID, GameNumber);
+
+CREATE  INDEX PlayerLastName ON Bball_players(PlayerLastName) ;
+
+CREATE  INDEX BballPlayerTeamID ON Bball_players(TeamID) ;
+
+ALTER TABLE Match_Games ADD 
+	CONSTRAINT Match_Games_PK PRIMARY KEY   
+	(
+		MatchID,
+		GameNumber
+	)   ;
+
+CREATE  INDEX Team1ID ON Match_Games(WinningTeam) ;
+
+CREATE  INDEX TourneyMatchesMatchGames ON Match_Games(MatchID) ;
+
+ALTER TABLE Match_Games_Secondary ADD 
+	CONSTRAINT Match_Games_Secondary_PK PRIMARY KEY  
+	(
+		MatchID,
+		GameNumber
+	)  ;
+
+CREATE  INDEX Team1ID ON Match_Games_Secondary(WinningTeam);
+
+CREATE  INDEX Tourney_Matches_SecondaryMatch_Games_Secondary ON Match_Games_Secondary(MatchID);
+
+ALTER TABLE Tournaments_Secondary ADD 
+	CONSTRAINT Tournaments_Secondary_PK PRIMARY KEY 
+	(
+		TourneyID
+	)  ;
+
+CREATE  INDEX TeamsTourney_Matches_HomeTeam ON Tourney_Matches(HomeTeam) ;
+
+CREATE  INDEX TeamsTourneyMatches_AwayTeam ON Tourney_Matches(AwayTeam) ;
+
+CREATE  INDEX TourneyMatchesTourneyID ON Tourney_Matches(TourneyID) ;
+
+ALTER TABLE Tourney_Matches_Secondary ADD 
+	CONSTRAINT Tourney_Matches_Secondary_PK PRIMARY KEY   
+	(
+		MatchID
+	)  ;
+
+CREATE  INDEX Team1ID ON Tourney_Matches_Secondary(HomeTeam);
+
+CREATE  INDEX Team2ID ON Tourney_Matches_Secondary(AwayTeam);
+
+CREATE  INDEX TourneyID ON Tourney_Matches_Secondary(TourneyID);
+
+ALTER TABLE WAZips ADD 
+	CONSTRAINT WAZips_PK PRIMARY KEY   
+	(
+		ZIP
+	)  ;
+
+ALTER TABLE bbPlayer_Scores ADD 
+	CONSTRAINT bbPlayer_Scores_FK00 FOREIGN KEY 
+	(
+		PlayerID
+	) REFERENCES Bball_players (
+		PlayerID
+	),
+	ADD CONSTRAINT Bball_players_FK01 FOREIGN KEY 
+	(
+		MatchID,
+		GameNumber
+	) REFERENCES Match_Games (
+		MatchID,
+		GameNumber
+	);
+
+ALTER TABLE bbPlayer_Scores_Secondary ADD 
+	CONSTRAINT BbbPlayer_Scores_Secondary_FK00 FOREIGN KEY 
+	(
+		MatchID,
+		GameNumber
+	) REFERENCES Match_Games_Secondary (
+		MatchID,
+		GameNumber
+	);
+
+ALTER TABLE Bball_players ADD 
+	CONSTRAINT Bball_players_FK00 FOREIGN KEY 
+	(
+		TeamID
+	) REFERENCES Teams (
+		TeamID
+	);
+
+ALTER TABLE Match_Games ADD 
+	CONSTRAINT Match_Games_FK00 FOREIGN KEY 
+	(
+		MatchID
+	) REFERENCES Tourney_Matches (
+		MatchID
+	);
+
+ALTER TABLE Match_Games_Secondary ADD 
+	CONSTRAINT Match_Games_Secondary_FK00 FOREIGN KEY 
+	(
+		MatchID
+	) REFERENCES Tourney_Matches_Secondary (
+		MatchID
+	);
+
+ALTER TABLE Tourney_Matches ADD 
+	CONSTRAINT Tourney_Matches_FK00 FOREIGN KEY 
+	(
+		HomeTeam
+	) REFERENCES Teams (
+		TeamID
+	),
+	ADD CONSTRAINT Tourney_Matches_FK01 FOREIGN KEY 
+	(
+		AwayTeam
+	) REFERENCES Teams (
+		TeamID
+	),
+	ADD CONSTRAINT Tourney_Matches_FK02 FOREIGN KEY 
+	(
+		TourneyID
+	) REFERENCES Tournaments (
+		TourneyID
+	);
+
+ALTER TABLE Tourney_Matches_Secondary ADD 
+	CONSTRAINT Tourney_Matches_Secondary_FK00 FOREIGN KEY 
+	(
+		TourneyID
+	) REFERENCES Tournaments_Secondary (
+		TourneyID
+	);
