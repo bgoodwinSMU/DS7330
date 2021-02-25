@@ -1,0 +1,74 @@
+
+/*
+Question 4A
+*/
+select TourneyLocation
+from Tournaments;
+
+/*
+Question 4B
+*/
+Select playerFirstName, PlayerLastName, PlayerAddress, PlayerCity, PlayerState, PLayerZipCode
+From Bball_players
+order by PLayerZipCode;
+
+/*
+Question 4C
+*/
+select HeadCoachFirstName, HeadCoachLastName, TeamName
+From Teams;
+
+/*
+Question 4d
+*/
+SELECT Tournaments.TourneyID, Tournaments.TourneyDate, Tournaments.TourneyLocation
+FROM Tournaments LEFT JOIN Tourney_Matches
+ON Tournaments.TourneyID=Tourney_Matches.TourneyID
+WHERE Tourney_Matches.MatchID Is Null;
+
+/*
+Question 4e
+*/
+SELECT Bball_players.playerFirstName, Bball_players.playerLastName,Max(bbPlayer_Scores.PlayerScore)
+FROM Bball_players
+INNER JOIN bbPlayer_Scores
+ON Bball_players.PlayerID=bbPlayer_Scores.PlayerID
+GROUP BY Bball_players.playerFirstName, Bball_players.playerLastName 
+order by max(bbPlayer_Scores.PlayerScore) desc
+limit 10;
+
+/*
+Question 4f
+*/
+SELECT Bball_players.playerFirstName, Bball_players.playerLastName,Max(bbPlayer_Scores.PlayerScore)
+FROM Bball_players
+INNER JOIN bbPlayer_Scores
+ON Bball_players.PlayerID=bbPlayer_Scores.PlayerID
+GROUP BY Bball_players.playerFirstName, Bball_players.playerLastName 
+order by max(bbPlayer_Scores.PlayerScore) desc;
+
+/*
+Question 4f
+*/
+SELECT Bball_players.playerFirstName, Bball_players.playerLastName,Avg(bbPlayer_Scores.PlayerScore) AS AvgScore
+FROM Bball_players
+INNER JOIN bbPlayer_Scores
+ON Bball_players.PlayerID=bbPlayer_Scores.PlayerID
+GROUP BY Bball_players.playerFirstName, Bball_players.playerLastName 
+HAVING Max(bbPlayer_Scores.PlayerScore)>AvgScore+10;
+
+/*
+Question 5
+*/
+Create View RedRooster
+As
+Select TourneyLocation 
+FROM Tournaments
+where Tournaments.TourneyLocation ='Red Rooster Arena';
+
+/*
+Question 6
+*/
+SELECT Tournaments.TourneyID, Tournaments.TourneyDate, Tournaments.TourneyLocation
+FROM Tournaments
+Limit 14;
